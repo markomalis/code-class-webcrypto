@@ -6,23 +6,9 @@ const algorithm = {
 }
 
 export default function(user) {
-  return window.crypto.subtle.generateKey(algorithm, false, [ 'decrypt', 'encrypt' ])
-    .then(keys => Promise.all([
-      Promise.resolve(keys),
-      crypto.subtle.exportKey('jwk', keys.publicKey)
-    ]))
-    .then(([cryptoKeys, exportedPublicKey]) => ({
-      ...user,
-      cryptoKeys,
-      publicKeyString: JSON.stringify(exportedPublicKey)
-    }))
-    .catch(error => console.log(`Error generating keys: ${error}`))
+  return Promise.resolve({
+    ...user,
+    cryptoKeys: {},
+    publicKeyString: ''
+  })
 }
-
-// export default function(user) {
-//   return Promise.resolve({
-//     ...user,
-//     cryptoKeys: {},
-//     publicKeyString: ''
-//   })
-// }
