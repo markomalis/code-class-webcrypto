@@ -6,7 +6,7 @@ Code Class about the `crypto` and `crypto.subtle` API's
 
 To run the project during the code class ask the big boss in charge kindly for the
 contents of the `.env` file or take a look on Slack.
-Create a `.env` in the root of the project, then:
+Create a `.env` in the root of the project containing the provided content, then:
 
 ```
 npm i
